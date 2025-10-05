@@ -1,0 +1,252 @@
+<div class="px-4 pt-5 my-5 text-center">
+  <h1 class="display-4 fw-bold" data-i18n="heroTitle">🌾 Empowering Farmers with AI & IoT</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead mb-4" data-i18n="heroText">
+      Harnessing the power of AI and IoT to help farmers make smarter decisions, boost crop yields, improve livestock productivity, and transform agriculture into a data-driven, sustainable practice.
+    </p>
+    <div class="container">
+      <div class="ratio ratio-1x1 mx-lg-auto" style="max-width: 250px;">
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          class="img-fluid"
+        >
+          <source src="/videos/tractor.webm" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+      <a href="/livestock">
+        <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3" data-i18n="livestockButton">Livestock</button>
+      </a>
+      <a href="/crops">
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4" data-i18n="cropButton">Crop</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageDropdownToggle = document.getElementById('navbarLanguageDropdown');
+    const languageDropdownItems = document.querySelectorAll('#navbarLanguageDropdown + .dropdown-menu .dropdown-item');
+
+    const translations = {
+        "en": {
+            "heroTitle": "🌾 Empowering Farmers with AI & IoT",
+            "heroText": "Harnessing the power of AI and IoT to help farmers make smarter decisions, boost crop yields, improve livestock productivity, and transform agriculture into a data-driven, sustainable practice.",
+            "livestockButton": "Livestock",
+            "cropButton": "Crop",
+            "home": "Home",
+            "crop": "Crop",
+            "diseaseDetection": "Disease detection",
+            "buyCrops": "Buy Crops",
+            "smartFarming": "Smart Farming",
+            "askUsCrop": "Ask us !",
+            "livestock": "Livestock",
+            "livestockIdentification": "Livestock Identification",
+            "milkCalculator": "Milk Calculator",
+            "animalDiseaseDetection": "Disesase Detection",
+            "askUsLivestock": "Ask us !",
+            "iot": "IOT",
+            "search": "Search",
+            "agritech": "AgriTech",
+            "footerAboutUsTitle": "About Us",
+            "footerAboutUsText": "AgriTech is a platform dedicated to empowering farmers with technology, providing solutions for crop management, livestock care, and smart farming.",
+            "footerQuickLinksTitle": "Quick Links",
+            "footerContactUsTitle": "Contact Us",
+            "contactLocation": "New York, NY 10012, US",
+            "contactEmail": "info@example.com",
+            "contactPhone": "+ 01 234 567 88",
+            "footerRightsReserved": "All Rights Reserved."
+        },
+        "hi": {
+            "heroTitle": "🌾 एआई और आईओटी से किसानों को सशक्त बनाना",
+            "heroText": "एआई और आईओटी की शक्ति का उपयोग करके किसानों को बेहतर निर्णय लेने, फसल की पैदावार बढ़ाने, पशुधन उत्पादकता में सुधार करने और कृषि को डेटा-संचालित, टिकाऊA अभ्यास में बदलने में मदद करना।",
+            "livestockButton": "पशुधन",
+            "cropButton": "फसल",
+            "home": "होम",
+            "crop": "फसल",
+            "diseaseDetection": "रोग की पहचान",
+            "buyCrops": "फसल खरीदें",
+            "smartFarming": "स्मार्ट खेती",
+            "askUsCrop": "हमसे पूछें!",
+            "livestock": "पशुधन",
+            "livestockIdentification": "पशुधन पहचान",
+            "milkCalculator": "दूध कैलकुलेटर",
+            "animalDiseaseDetection": "रोग का पता लगाना",
+            "askUsLivestock": "हमसे पूछें!",
+            "iot": "आईओटी",
+            "search": "खोज",
+            "agritech": "एग्रीटेक",
+            "footerAboutUsTitle": "हमारे बारे में",
+            "footerAboutUsText": "एग्रीटेक किसानों को सशक्त बनाने के लिए समर्पित एक मंच है, जो फसल प्रबंधन, पशुधन देखभाल और स्मार्ट खेती के लिए समाधान प्रदान करता है।",
+            "footerQuickLinksTitle": "त्वरित लिंक",
+            "footerContactUsTitle": "हमसे संपर्क करें",
+            "contactLocation": "न्यूयॉर्क, एनवाई 10012, यूएस",
+            "contactEmail": "info@example.com",
+            "contactPhone": "+ 01 234 567 88",
+            "footerRightsReserved": "सर्वाधिकार सुरक्षित।"
+        },
+        "mr": {
+            "heroTitle": "🌾 एआय आणि आयओटीने शेतकऱ्यांचे सक्षमीकरण",
+            "heroText": "एआय आणि आयओटीच्या सामर्थ्याचा वापर करून शेतकऱ्यांचे निर्णय अधिक योग्य, पिकांची वाढ, पशुधनाची उत्पादकता सुधारण्यासाठी आणि शेतीला डेटा-आधारित, टिकाऊ सराव मध्ये रूपांतरित करण्यासाठी मदत करणे.",
+            "livestockButton": "पशुधन",
+            "cropButton": "पीक",
+            "home": "मुख्यपृष्ठ",
+            "crop": "पीक",
+            "diseaseDetection": "रोग ओळख",
+            "buyCrops": "पीक खरेदी करा",
+            "smartFarming": "स्मार्ट शेती",
+            "askUsCrop": "आम्हाला विचारा!",
+            "livestock": "पशुधन",
+            "livestockIdentification": "पशुधन ओळख",
+            "milkCalculator": "दूध कॅल्क्युलेटर",
+            "animalDiseaseDetection": "रोग ओळख",
+            "askUsLivestock": "आम्हाला विचारा!",
+            "iot": "आयओटी",
+            "search": "शोध",
+            "agritech": "एग्रीटेक",
+            "footerAboutUsTitle": "आमच्याबद्दल",
+            "footerAboutUsText": "एग्रीटेक हे शेतकऱ्यांसाठी तंत्रज्ञान सक्षम करण्यासाठी समर्पित एक व्यासपीठ आहे, जे पीक व्यवस्थापन, पशुधन काळजी आणि स्मार्ट शेतीसाठी उपाय प्रदान करते.",
+            "footerQuickLinksTitle": "त्वरित दुवे",
+            "footerContactUsTitle": "आमच्याशी संपर्क साधा",
+            "contactLocation": "न्यूयॉर्क, एनवाई 10012, यूएस",
+            "contactEmail": "info@example.com",
+            "contactPhone": "+ 01 234 567 88",
+            "footerRightsReserved": "सर्व हक्क राखीव."
+        },
+        "fr": {
+            "heroTitle": "🌾 Rendre les agriculteurs autonomes avec l'IA et l'IoT",
+            "heroText": "Exploiter la puissance de l'IA et de l'IoT pour aider les agriculteurs à prendre des décisions plus judicieuses, à augmenter les rendements des cultures, à améliorer la productivité du bétail et à transformer l'agriculture en une pratique durable et axée sur les données.",
+            "livestockButton": "Bétail",
+            "cropButton": "Culture",
+            "home": "Accueil",
+            "crop": "Culture",
+            "diseaseDetection": "Détection des maladies",
+            "buyCrops": "Acheter des cultures",
+            "smartFarming": "Agriculture intelligente",
+            "askUsCrop": "Demandez-nous !",
+            "livestock": "Bétail",
+            "livestockIdentification": "Identification du bétail",
+            "milkCalculator": "Calculateur de lait",
+            "animalDiseaseDetection": "Détection des maladies animales",
+            "askUsLivestock": "Demandez-nous !",
+            "iot": "IoT",
+            "search": "Recherche",
+            "agritech": "AgriTech",
+            "footerAboutUsTitle": "À propos de nous",
+            "footerAboutUsText": "AgriTech est une plateforme dédiée à l'autonomisation des agriculteurs par la technologie, offrant des solutions pour la gestion des cultures, les soins du bétail et l'agriculture intelligente.",
+            "footerQuickLinksTitle": "Liens rapides",
+            "footerContactUsTitle": "Contactez-nous",
+            "contactLocation": "New York, NY 10012, États-Unis",
+            "contactEmail": "info@example.com",
+            "contactPhone": "+ 01 234 567 88",
+            "footerRightsReserved": "Tous droits réservés."
+        },
+        "zh": {
+            "heroTitle": "🌾 利用人工智能和物联网赋能农民",
+            "heroText": "利用人工智能和物联网的力量，帮助农民做出更明智的决策，提高作物产量，改善牲畜生产力，并将农业转变为数据驱动的可持续实践。",
+            "livestockButton": "牲畜",
+            "cropButton": "作物",
+            "home": "首页",
+            "crop": "作物",
+            "diseaseDetection": "疾病检测",
+            "buyCrops": "购买作物",
+            "smartFarming": "智能农业",
+            "askUsCrop": "问我们！",
+            "livestock": "牲畜",
+            "livestockIdentification": "牲畜识别",
+            "milkCalculator": "牛奶计算器",
+            "animalDiseaseDetection": "动物疾病检测",
+            "askUsLivestock": "问我们！",
+            "iot": "物联网",
+            "search": "搜索",
+            "agritech": "农业科技",
+            "footerAboutUsTitle": "关于我们",
+            "footerAboutUsText": "AgriTech是一个致力于通过技术赋能农民的平台，为作物管理、牲畜护理和智能农业提供解决方案。",
+            "footerQuickLinksTitle": "快速链接",
+            "footerContactUsTitle": "联系我们",
+            "contactLocation": "美国纽约州纽约市 10012",
+            "contactEmail": "info@example.com",
+            "contactPhone": "+ 01 234 567 88",
+            "footerRightsReserved": "保留所有权利。"
+        },
+        "de": {
+            "heroTitle": "🌾 Landwirte mit KI und IoT stärken",
+            "heroText": "Die Kraft von KI und IoT nutzen, um Landwirten zu helfen, klügere Entscheidungen zu treffen, Ernteerträge zu steigern, die Viehproduktivität zu verbessern und die Landwirtschaft in eine datengesteuerte, nachhaltige Praxis zu verwandeln.",
+            "livestockButton": "Vieh",
+            "cropButton": "Pflanze",
+            "home": "Startseite",
+            "crop": "Pflanze",
+            "diseaseDetection": "Krankheitserkennung",
+            "buyCrops": "Pflanzen kaufen",
+            "smartFarming": "Intelligente Landwirtschaft",
+            "askUsCrop": "Fragen Sie uns!",
+            "livestock": "Vieh",
+            "livestockIdentification": "Viehidentifikation",
+            "milkCalculator": "Milchrechner",
+            "animalDiseaseDetection": "Tierkrankheitserkennung",
+            "askUsLivestock": "Fragen Sie uns!",
+            "iot": "IoT",
+            "search": "Suche",
+            "agritech": "AgriTech",
+            "footerAboutUsTitle": "Über uns",
+            "footerAboutUsText": "AgriTech ist eine Plattform, die sich der Stärkung von Landwirten durch Technologie widmet und Lösungen für Pflanzenmanagement, Viehpflege und intelligente Landwirtschaft bietet.",
+            "footerQuickLinksTitle": "Schnelllinks",
+            "footerContactUsTitle": "Kontaktieren Sie uns",
+            "contactLocation": "New York, NY 10012, USA",
+            "contactEmail": "info@example.com",
+            "contactPhone": "+ 01 234 567 88",
+            "footerRightsReserved": "Alle Rechte vorbehalten."
+        }
+    };
+
+    function applyTranslations(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.dataset.i18n;
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach(element => {
+            const key = element.dataset.i18nPlaceholder;
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        });
+    }
+
+    languageDropdownItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedLanguageText = this.textContent;
+            const selectedLangCode = this.dataset.lang;
+
+            languageDropdownToggle.textContent = selectedLanguageText;
+            localStorage.setItem('selectedLanguage', selectedLangCode);
+            applyTranslations(selectedLangCode);
+        });
+    });
+
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage && translations[savedLanguage]) {
+        languageDropdownItems.forEach(item => {
+            if (item.dataset.lang === savedLanguage) {
+                languageDropdownToggle.textContent = item.textContent;
+            }
+        });
+        applyTranslations(savedLanguage);
+    } else {
+        applyTranslations('en');
+        languageDropdownToggle.textContent = "English";
+    }
+});
+</script>

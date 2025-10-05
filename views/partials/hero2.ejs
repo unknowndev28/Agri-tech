@@ -1,0 +1,283 @@
+<div class="container col-xxl-8">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3" data-i18n="hero2Title">Your Smart Farming Companion</h1>
+      <p class="lead" data-i18n="hero2Text">Harness the power of artificial intelligence to transform your farming practices. With just a simple image upload, detect crop diseases early and accurately to prevent loss. Get intelligent crop recommendations based on your soil type, location, past yields, and seasonal climate data. Whether you're planning your next harvest or managing an ongoing one, our platform helps you make smarter, data-driven decisions that increase crop health, optimize land use, and boost overall productivity—right from your phone or desktop.</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="/crops"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2" data-i18n="cropButton">Crops</button></a>
+        <a href="/crops-chat"><button type="button" class="btn btn-outline-secondary btn-lg px-4" data-i18n="chatButton">Chat</button></a>
+      </div>
+    </div>
+    <div class="col-10 col-sm-8 col-lg-6">
+      <video 
+        class="d-block mx-lg-auto img-fluid"
+        width="700"
+        height="500"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="/videos/plants.webm" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const languageDropdownToggle = document.getElementById('navbarLanguageDropdown');
+    const languageDropdownItems = document.querySelectorAll('#navbarLanguageDropdown + .dropdown-menu .dropdown-item');
+
+  const translations = {
+    "en": {
+        "heroTitle": "🌾 Empowering Farmers with AI & IoT",
+        "heroText": "Harnessing the power of AI and IoT to help farmers make smarter decisions, boost crop yields, improve livestock productivity, and transform agriculture into a data-driven, sustainable practice.",
+        "livestockButton": "Livestock",
+        "cropButton": "Crop",
+        "chatButton": "Chat",
+        "home": "Home",
+        "crop": "Crop",
+        "diseaseDetection": "Disease detection",
+        "buyCrops": "Buy Crops",
+        "smartFarming": "Smart Farming",
+        "askUsCrop": "Ask us !",
+        "livestock": "Livestock",
+        "livestockIdentification": "Livestock Identification",
+        "milkCalculator": "Milk Calculator",
+        "animalDiseaseDetection": "Disesase Detection",
+        "askUsLivestock": "Ask us !",
+        "iot": "IOT",
+        "search": "Search",
+        "agritech": "AgriTech",
+        "footerAboutUsTitle": "About Us",
+        "footerAboutUsText": "AgriTech is a platform dedicated to empowering farmers with technology, providing solutions for crop management, livestock care, and smart farming.",
+        "footerQuickLinksTitle": "Quick Links",
+        "footerContactUsTitle": "Contact Us",
+        "contactLocation": "New York, NY 10012, US",
+        "contactEmail": "info@example.com",
+        "contactPhone": "+ 01 234 567 88",
+        "footerRightsReserved": "All Rights Reserved.",
+        "knowYourBreedTitle": "Know Your Breed. Maximize Your Output",
+        "knowYourBreedText": "Take the guesswork out of livestock farming with AI-driven tools that recognize cow and buffalo breeds from a single image, delivering instant insights on breed traits, care requirements, and productivity potential. Receive customized tips for feed, nutrition, healthcare, and best practices tailored to your animals' specific needs. Whether you're managing a small herd or running a large dairy operation, our livestock support system helps you improve animal health, increase milk and meat yields, and farm more efficiently with confidence and clarity.",
+        // New keys for hero2
+        "hero2Title": "Your Smart Farming Companion",
+        "hero2Text": "Harness the power of artificial intelligence to transform your farming practices. With just a simple image upload, detect crop diseases early and accurately to prevent loss. Get intelligent crop recommendations based on your soil type, location, past yields, and seasonal climate data. Whether you're planning your next harvest or managing an ongoing one, our platform helps you make smarter, data-driven decisions that increase crop health, optimize land use, and boost overall productivity—right from your phone or desktop."
+    },
+    "hi": {
+        "heroTitle": "🌾 एआई और आईओटी से किसानों को सशक्त बनाना",
+        "heroText": "एआई और आईओटी की शक्ति का उपयोग करके किसानों को बेहतर निर्णय लेने, फसल की पैदावार बढ़ाने, पशुधन उत्पादकता में सुधार करने और कृषि को डेटा-संचालित, टिकाऊA अभ्यास में बदलने में मदद करना।",
+        "livestockButton": "पशुधन",
+        "cropButton": "फसल",
+        "chatButton": "चैट",
+        "home": "होम",
+        "crop": "फसल",
+        "diseaseDetection": "रोग की पहचान",
+        "buyCrops": "फसल खरीदें",
+        "smartFarming": "स्मार्ट खेती",
+        "askUsCrop": "हमसे पूछें!",
+        "livestock": "पशुधन",
+        "livestockIdentification": "पशुधन पहचान",
+        "milkCalculator": "दूध कैलकुलेटर",
+        "animalDiseaseDetection": "रोग का पता लगाना",
+        "askUsLivestock": "हमसे पूछें!",
+        "iot": "आईओटी",
+        "search": "खोज",
+        "agritech": "एग्रीटेक",
+        "footerAboutUsTitle": "हमारे बारे में",
+        "footerAboutUsText": "एग्रीटेक किसानों को सशक्त बनाने के लिए समर्पित एक मंच है, जो फसल प्रबंधन, पशुधन देखभाल और स्मार्ट खेती के लिए समाधान प्रदान करता है।",
+        "footerQuickLinksTitle": "त्वरित लिंक",
+        "footerContactUsTitle": "हमसे संपर्क करें",
+        "contactLocation": "न्यूयॉर्क, एनवाई 10012, यूएस",
+        "contactEmail": "info@example.com",
+        "contactPhone": "+ 01 234 567 88",
+        "footerRightsReserved": "सर्वाधिकार सुरक्षित।",
+        "knowYourBreedTitle": "अपने नस्ल को जानें। अपनी पैदावार को अधिकतम करें",
+        "knowYourBreedText": "एआई-संचालित उपकरणों के साथ पशुधन पालन से अनुमान लगाना बंद करें जो एक ही छवि से गाय और भैंस की नस्लों को पहचानते हैं, नस्ल के लक्षणों, देखभाल की आवश्यकताओं और उत्पादकता की क्षमता पर तत्काल जानकारी प्रदान करते हैं। अपने जानवरों की विशिष्ट आवश्यकताओं के अनुसार फ़ीड, पोषण, स्वास्थ्य सेवा और सर्वोत्तम प्रथाओं के लिए अनुकूलित सुझाव प्राप्त करें। चाहे आप एक छोटे झुंड का प्रबंधन कर रहे हों या एक बड़ा डेयरी ऑपरेशन चला रहे हों, हमारी पशुधन सहायता प्रणाली आपको पशु स्वास्थ्य में सुधार करने, दूध और मांस की पैदावार बढ़ाने और आत्मविश्वास और स्पष्टता के साथ अधिक कुशलता से खेती करने में मदद करती।",
+        // New keys for hero2
+        "hero2Title": "आपका स्मार्ट खेती साथी",
+        "hero2Text": "अपनी खेती की प्रथाओं को बदलने के लिए कृत्रिम बुद्धिमत्ता की शक्ति का उपयोग करें। बस एक साधारण छवि अपलोड के साथ, नुकसान को रोकने के लिए फसल रोगों का जल्दी और सटीक पता लगाएं। अपनी मिट्टी के प्रकार, स्थान, पिछली पैदावार और मौसमी जलवायु डेटा के आधार पर बुद्धिमान फसल सिफारिशें प्राप्त करें। चाहे आप अपनी अगली फसल की योजना बना रहे हों या चल रहे फसल का प्रबंधन कर रहे हों, हमारा मंच आपको अपने फोन या डेस्कटॉप से ही, बेहतर, डेटा-संचालित निर्णय लेने में मदद करता है जो फसल के स्वास्थ्य को बढ़ाता है, भूमि के उपयोग को अनुकूलित करता है और कुल उत्पादकता को बढ़ाता है।"
+    },
+    "mr": {
+        "heroTitle": "🌾 एआय आणि आयओटीने शेतकऱ्यांचे सक्षमीकरण",
+        "heroText": "एआय आणि आयओटीच्या सामर्थ्याचा वापर करून शेतकऱ्यांचे निर्णय अधिक योग्य, पिकांची वाढ, पशुधनाची उत्पादकता सुधारण्यासाठी आणि शेतीला डेटा-आधारित, टिकाऊ सराव मध्ये रूपांतरित करण्यासाठी मदत करणे.",
+        "livestockButton": "पशुधन",
+        "cropButton": "पीक",
+        "chatButton": "गप्पा",
+        "home": "मुख्यपृष्ठ",
+        "crop": "पीक",
+        "diseaseDetection": "रोग ओळख",
+        "buyCrops": "पीक खरेदी करा",
+        "smartFarming": "स्मार्ट शेती",
+        "askUsCrop": "आम्हाला विचारा!",
+        "livestock": "पशुधन",
+        "livestockIdentification": "पशुधन ओळख",
+        "milkCalculator": "दूध कॅल्क्युलेटर",
+        "animalDiseaseDetection": "रोग ओळख",
+        "askUsLivestock": "आम्हाला विचारा!",
+        "iot": "आयओटी",
+        "search": "शोध",
+        "agritech": "एग्रीटेक",
+        "footerAboutUsTitle": "आमच्याबद्दल",
+        "footerAboutUsText": "एग्रीटेक हे शेतकऱ्यांसाठी तंत्रज्ञान सक्षम करण्यासाठी समर्पित एक व्यासपीठ आहे, जे पीक व्यवस्थापन, पशुधन काळजी आणि स्मार्ट शेतीसाठी उपाय प्रदान करते.",
+        "footerQuickLinksTitle": "त्वरित दुवे",
+        "footerContactUsTitle": "आमच्याशी संपर्क साधा",
+        "contactLocation": "न्यूयॉर्क, एनवाई 10012, यूएस",
+        "contactEmail": "info@example.com",
+        "contactPhone": "+ 01 234 567 88",
+        "footerRightsReserved": "सर्व हक्क राखीव.",
+        "knowYourBreedTitle": "तुमची जात ओळखा. तुमचे उत्पादन वाढवा",
+        "knowYourBreedText": "एआय-चालित साधनांनी पशुधनाच्या शेतीतून अंदाजपत्रक काढून टाका जे एकाच प्रतिमेतून गाय आणि म्हैस जाती ओळखतात, जातीच्या गुणधर्मांवर, काळजीच्या गरजा आणि उत्पादकतेच्या संभाव्यतेवर त्वरित अंतर्दृष्टी देतात. तुमच्या प्राण्यांच्या विशिष्ट गरजांनुसार खाद्य, पोषण, आरोग्य सेवा आणि सर्वोत्तम पद्धतींसाठी सानुकूलित टिप्स मिळवा. तुम्ही लहान कळपाचे व्यवस्थापन करत असाल किंवा मोठ्या दुग्धव्यवसायाचे संचालन करत असाल, आमची पशुधन समर्थन प्रणाली तुम्हाला प्राण्यांचे आरोग्य सुधारण्यास, दूध आणि मांसाचे उत्पादन वाढवण्यास आणि आत्मविश्वास आणि स्पष्टतेसह अधिक कार्यक्षमतेने शेती करण्यास मदत करते.",
+        // New keys for hero2
+        "hero2Title": "तुमचा स्मार्ट शेती साथीदार",
+        "hero2Text": "तुमच्या शेतीच्या पद्धतींमध्ये बदल करण्यासाठी कृत्रिम बुद्धिमत्तेचा वापर करा. फक्त एका साध्या प्रतिमेच्या अपलोडने, नुकसान टाळण्यासाठी पिकांचे रोग लवकर आणि अचूकपणे ओळखा. तुमच्या मातीचा प्रकार, स्थान, मागील उत्पन्न आणि हंगामी हवामान डेटावर आधारित हुशार पीक शिफारसी मिळवा. तुम्ही तुमच्या पुढील पिकाची योजना करत असाल किंवा चालू असलेल्या पिकाचे व्यवस्थापन करत असाल, आमचा प्लॅटफॉर्म तुम्हाला अधिक स्मार्ट, डेटा-आधारित निर्णय घेण्यास मदत करतो ज्यामुळे पिकांचे आरोग्य वाढते, जमिनीचा वापर अनुकूल होतो आणि एकूण उत्पादकता वाढते—अगदी तुमच्या फोन किंवा डेस्कटॉपवरून."
+    },
+    "fr": {
+        "heroTitle": "🌾 Rendre les agriculteurs autonomes avec l'IA et l'IoT",
+        "heroText": "Exploiter la puissance de l'IA et de l'IoT pour aider les agriculteurs à prendre des décisions plus judicieuses, à augmenter les rendements des cultures, à améliorer la productivité du bétail et à transformer l'agriculture en une pratique durable et axée sur les données.",
+        "livestockButton": "Bétail",
+        "cropButton": "Culture",
+        "chatButton": "Chat",
+        "home": "Accueil",
+        "crop": "Culture",
+        "diseaseDetection": "Détection des maladies",
+        "buyCrops": "Acheter des cultures",
+        "smartFarming": "Agriculture intelligente",
+        "askUsCrop": "Demandez-nous !",
+        "livestock": "Bétail",
+        "livestockIdentification": "Identification du bétail",
+        "milkCalculator": "Calculateur de lait",
+        "animalDiseaseDetection": "Détection des maladies animales",
+        "askUsLivestock": "Demandez-nous !",
+        "iot": "IoT",
+        "search": "Recherche",
+        "agritech": "AgriTech",
+        "footerAboutUsTitle": "À propos de nous",
+        "footerAboutUsText": "AgriTech est une plateforme dédiée à l'autonomisation des agriculteurs par la technologie, offrant des solutions pour la gestion des cultures, les soins du bétail et l'agriculture intelligente.",
+        "footerQuickLinksTitle": "Liens rapides",
+        "footerContactUsTitle": "Contactez-nous",
+        "contactLocation": "New York, NY 10012, États-Unis",
+        "contactEmail": "info@example.com",
+        "contactPhone": "+ 01 234 567 88",
+        "footerRightsReserved": "Tous droits réservés.",
+        "knowYourBreedTitle": "Connaissez votre race. Maximisez votre production",
+        "knowYourBreedText": "Supprimez les incertitudes de l'élevage grâce à des outils basés sur l'IA qui reconnaissent les races de vaches et de buffles à partir d'une seule image, fournissant des informations instantanées sur les traits de la race, les besoins en matière de soins et le potentiel de productivité. Recevez des conseils personnalisés sur l'alimentation, la nutrition, les soins de santé et les meilleures pratiques adaptés aux besoins spécifiques de vos animaux. Que vous gériez un petit troupeau ou une grande exploitation laitière, notre système de soutien au bétail vous aide à améliorer la santé animale, à augmenter les rendements en lait et en viande, et à cultiver plus efficacement avec confiance et clarté.",
+        // New keys for hero2
+        "hero2Title": "Votre compagnon d'agriculture intelligent",
+        "hero2Text": "Exploitez la puissance de l'intelligence artificielle pour transformer vos pratiques agricoles. Avec un simple téléchargement d'image, détectez les maladies des cultures tôt et avec précision pour prévenir les pertes. Obtenez des recommandations de cultures intelligentes basées sur votre type de sol, votre emplacement, vos rendements passés et les données climatiques saisonnières. Que vous planifiez votre prochaine récolte ou que vous en gériez une en cours, notre plateforme vous aide à prendre des décisions plus intelligentes et basées sur des données qui améliorent la santé des cultures, optimisent l'utilisation des terres et augmentent la productivité globale, directement depuis votre téléphone ou votre ordinateur de bureau."
+    },
+    "zh": {
+        "heroTitle": "🌾 利用人工智能和物联网赋能农民",
+        "heroText": "利用人工智能和物联网的力量，帮助农民做出更明智的决策，提高作物产量，改善牲畜生产力，并将农业转变为数据驱动的可持续实践。",
+        "livestockButton": "牲畜",
+        "cropButton": "作物",
+        "chatButton": "聊天",
+        "home": "首页",
+        "crop": "作物",
+        "diseaseDetection": "疾病检测",
+        "buyCrops": "购买作物",
+        "smartFarming": "智能农业",
+        "askUsCrop": "问我们！",
+        "livestock": "牲畜",
+        "livestockIdentification": "牲畜识别",
+        "milkCalculator": "牛奶计算器",
+        "animalDiseaseDetection": "动物疾病检测",
+        "askUsLivestock": "问我们！",
+        "iot": "物联网",
+        "search": "搜索",
+        "agritech": "农业科技",
+        "footerAboutUsTitle": "关于我们",
+        "footerAboutUsText": "AgriTech是一个致力于通过技术赋能农民的平台，为作物管理、牲畜护理和智能农业提供解决方案。",
+        "footerQuickLinksTitle": "快速链接",
+        "footerContactUsTitle": "联系我们",
+        "contactLocation": "美国纽约州纽约市 10012",
+        "contactEmail": "info@example.com",
+        "contactPhone": "+ 01 234 567 88",
+        "footerRightsReserved": "保留所有权利。",
+        "knowYourBreedTitle": "了解你的品种。最大化你的产出",
+        "knowYourBreedText": "利用人工智能驱动的工具，从一张图片中识别牛和水牛的品种，从而消除畜牧业的猜测，并提供有关品种特征、护理要求和生产力潜力的即时见解。获取针对您的动物特定需求量身定制的饲料、营养、医疗保健和最佳实践的个性化提示。无论您是管理小牛群还是经营大型奶牛场，我们的牲畜支持系统都可以帮助您改善动物健康、增加牛奶和肉类产量，并以自信和清晰的方式更高效地进行农业生产。",
+        // New keys for hero2
+        "hero2Title": "你的智能农业伴侣",
+        "hero2Text": "利用人工智能的力量来改变你的农业实践。只需简单的图片上传，即可及早准确地检测作物疾病，以防止损失。根据你的土壤类型、位置、过往产量和季节性气候数据，获得智能作物推荐。无论你是在规划下一次收成还是管理正在进行的收成，我们的平台都可以帮助你做出更智能、数据驱动的决策，从而提高作物健康、优化土地利用并提高整体生产力——这一切都可以在你的手机或桌面上完成。"
+    },
+    "de": {
+        "heroTitle": "🌾 Landwirte mit KI und IoT stärken",
+        "heroText": "Die Kraft von KI und IoT nutzen, um Landwirten zu helfen, klügere Entscheidungen zu treffen, Ernteerträge zu steigern, die Viehproduktivität zu verbessern und die Landwirtschaft in eine datengesteuerte, nachhaltige Praxis zu verwandeln.",
+        "livestockButton": "Vieh",
+        "cropButton": "Pflanze",
+        "chatButton": "Chat",
+        "home": "Startseite",
+        "crop": "Pflanze",
+        "diseaseDetection": "Krankheitserkennung",
+        "buyCrops": "Pflanzen kaufen",
+        "smartFarming": "Intelligente Landwirtschaft",
+        "askUsCrop": "Fragen Sie uns!",
+        "livestock": "Vieh",
+        "livestockIdentification": "Viehidentifikation",
+        "milkCalculator": "Milchrechner",
+        "animalDiseaseDetection": "Tierkrankheitserkennung",
+        "askUsLivestock": "Fragen Sie uns!",
+        "iot": "IoT",
+        "search": "Suche",
+        "agritech": "AgriTech",
+        "footerAboutUsTitle": "Über uns",
+        "footerAboutUsText": "AgriTech ist eine Plattform, die sich der Stärkung von Landwirten durch Technologie widmet und Lösungen für Pflanzenmanagement, Viehpflege und intelligente Landwirtschaft bietet.",
+        "footerQuickLinksTitle": "Schnelllinks",
+        "footerContactUsTitle": "Kontaktieren Sie uns",
+        "contactLocation": "New York, NY 10012, USA",
+        "contactEmail": "info@example.com",
+        "contactPhone": "+ 01 234 567 88",
+        "footerRightsReserved": "Alle Rechte vorbehalten.",
+        "knowYourBreedTitle": "Kennen Sie Ihre Rasse. Maximieren Sie Ihren Ertrag",
+        "knowYourBreedText": "Mit KI-gesteuerten Tools, die Rinder- und Büffelrassen anhand eines einzigen Bildes erkennen, können Sie das Rätselraten in der Viehzucht beenden. Erhalten Sie sofortige Einblicke in Rassemerkmale, Pflegeanforderungen und Produktivitätspotenzial. Erhalten Sie maßgeschneiderte Tipps für Futter, Ernährung, Gesundheitsversorgung und bewährte Verfahren, die auf die spezifischen Bedürfnisse Ihrer Tiere zugeschnitten sind. Egal, ob Sie eine kleine Herde verwalten oder einen großen Milchbetrieb führen, unser Vieh-Unterstützungssystem hilft Ihnen, die Tiergesundheit zu verbessern, die Milch- und Fleischerträge zu steigern und mit Vertrauen und Klarheit effizienter zu wirtschaften.",
+        // New keys for hero2
+        "hero2Title": "Ihr intelligenter Landwirtschafts-Begleiter",
+        "hero2Text": "Nutzen Sie die Kraft der künstlichen Intelligenz, um Ihre landwirtschaftlichen Praktiken zu transformieren. Mit einem einfachen Bild-Upload können Sie Pflanzenkrankheiten frühzeitig und präzise erkennen, um Verluste zu vermeiden. Erhalten Sie intelligente Pflanzenempfehlungen basierend auf Ihrer Bodenart, Ihrem Standort, früheren Erträgen und saisonalen Klimadaten. Egal, ob Sie Ihre nächste Ernte planen oder eine laufende verwalten, unsere Plattform hilft Ihnen, intelligentere, datengesteuerte Entscheidungen zu treffen, die die Pflanzengesundheit verbessern, die Landnutzung optimieren und die Gesamtproduktivität steigern – direkt von Ihrem Telefon oder Desktop aus."
+    }
+    
+};
+
+    function applyTranslations(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.dataset.i18n;
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach(element => {
+            const key = element.dataset.i18nPlaceholder;
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        });
+    }
+
+    languageDropdownItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedLanguageText = this.textContent;
+            const selectedLangCode = this.dataset.lang;
+
+            languageDropdownToggle.textContent = selectedLanguageText;
+            localStorage.setItem('selectedLanguage', selectedLangCode);
+            applyTranslations(selectedLangCode);
+        });
+    });
+
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage && translations[savedLanguage]) {
+        languageDropdownItems.forEach(item => {
+            if (item.dataset.lang === savedLanguage) {
+                languageDropdownToggle.textContent = item.textContent;
+            }
+        });
+        applyTranslations(savedLanguage);
+    } else {
+        applyTranslations('en');
+        languageDropdownToggle.textContent = "English";
+    }
+});
+</script> 

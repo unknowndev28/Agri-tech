@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini API with EJS & Express</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .loader {
+            border-top-color: #0ea5e9;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100 text-gray-900 font-sans min-h-screen flex items-center justify-center p-4 sm:p-6 md:p-8">
+
+    <div class="bg-white bg-opacity-30 backdrop-blur-md p-6 sm:p-8 rounded-3xl shadow-xl w-full max-w-md lg:max-w-3xl border border-white border-opacity-40">
+        <h1 class="text-3xl sm:text-4xl font-extrabold mb-6 text-sky-500 text-center">Ask Gemini</h1>
+        <form id="generationForm" action="/generate" method="POST" class="w-full">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:space-x-4 mb-4">
+                <label for="language" class="block text-lg font-semibold text-gray-800 mb-2 sm:mb-0">Language:</label>
+                <select id="language" name="language" class="flex-grow bg-white bg-opacity-50 text-gray-900 rounded-lg p-3 focus:ring-2 focus:ring-sky-500 focus:outline-none transition-colors">
+                    <option value="en">English</option>
+                    <option value="es">Español</option>
+                    <option value="fr">Français</option>
+                    <option value="de">Deutsch</option>
+                    <option value="hi">Hindi</option>
+                    <option value="mr">Marathi</option>
+                    <option value="ta">Tamil</option>
+                    <option value="te">Telugu</option>
+                    <option value="bn">Bengali</option>
+                </select>
+            </div>
+            <label for="prompt" class="block text-lg font-semibold mb-2 text-gray-800">Enter Your Location:</label>
+            <textarea
+                id="prompt"
+                name="prompt"
+                placeholder="Location"
+                required
+                class="w-full h-40 bg-white bg-opacity-50 text-gray-900 rounded-lg p-4 mb-4 focus:ring-2 focus:ring-sky-500 focus:outline-none transition-colors placeholder-gray-500"
+            ></textarea>
+            <button
+                type="submit"
+                id="generateButton"
+                class="w-full bg-sky-600 hover:bg-sky-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition-transform transform hover:scale-105"
+            >
+                Generate Response
+            </button>
+        </form>
+
+        <%-include("partials/loder.ejs")%>
+
+
+        <% if (responseText) { %>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-8 mb-4 text-sky-500 text-center">AI Response</h2>
+            <div id="responseBox" class="response-box mt-6 bg-white bg-opacity-50 p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl border-l-4 border-sky-500" data-full-text="<%= responseText %>"></div>
+        <% } %>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('generationForm');
+            const button = document.getElementById('generateButton');
+            const loader = document.getElementById('loader');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                loader.classList.remove('hidden');
+                button.disabled = true;
+                button.innerText = 'Generating...';
+                
+                setTimeout(() => {
+                    form.submit();
+                }, 100);
+            });
+
+            const responseBox = document.getElementById('responseBox');
+            if (responseBox) {
+                const fullText = responseBox.getAttribute('data-full-text');
+                responseBox.innerText = ''; 
+
+                let i = 0;
+                const speed = 25; 
+
+                function typeWriter() {
+                    if (i < fullText.length) {
+                        responseBox.innerHTML += fullText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                }
+
+                setTimeout(typeWriter, 500);
+            }
+        });
+    </script>
+
+</body>
+</html>
+    

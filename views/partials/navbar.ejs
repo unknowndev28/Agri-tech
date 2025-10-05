@@ -1,0 +1,215 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+   <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="/images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+      <b data-i18n="agritech">AgriTech</b>
+    </a>
+  </div>
+</nav>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/index" data-i18n="home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/crops" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="crop">
+            Crop
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/plant-disease-identify" data-i18n="diseaseDetection">Disease detection</a></li>
+            <li><a class="dropdown-item" href="/buy-crops" data-i18n="buyCrops">Buy Crops</a></li>
+            <li><a class="dropdown-item" href="/smart-farming" data-i18n="smartFarming">Smart Farming</a></li>
+            <li><a class="dropdown-item" href="/crops-chat" data-i18n="askUsCrop">Ask us !</a></li>
+          </ul>
+        </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/livestock" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-i18n="livestock">
+            Livestock
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/stock-identification" data-i18n="livestockIdentification">Livestock Identification</a></li>
+            <li><a class="dropdown-item" href="/milk-calculator" data-i18n="milkCalculator">Milk Calculator</a></li>
+            <li><a class="dropdown-item" href="/animal-disease-detection" data-i18n="animalDiseaseDetection">Disesase Detection</a></li>
+            <li><a class="dropdown-item" href="/livestock-chat" data-i18n="askUsLivestock">Ask us !</a></li>
+          </ul>
+        </li>
+   
+         <li class="nav-item">
+          <a class="nav-link" href="#" data-i18n="iot">IOT</a>
+        </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarLanguageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            English <!-- Default text -->
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarLanguageDropdown">
+            <li><a class="dropdown-item" href="#" data-lang="en">English</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="hi">हिंदी</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="mr">मराठी</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="fr">Français</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="zh">中文</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="de">Deutsch</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" data-i18n-placeholder="search"/>
+        <button class="btn btn-outline-success" type="submit" data-i18n="search">Search</button>
+      </form>
+    </div>
+  </div>
+</nav><script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageDropdownToggle = document.getElementById('navbarLanguageDropdown');
+    const languageDropdownItems = document.querySelectorAll('#navbarLanguageDropdown + .dropdown-menu .dropdown-item');
+
+    const translations = {
+        "en": {
+            "home": "Home",
+            "crop": "Crop",
+            "diseaseDetection": "Disease detection",
+            "buyCrops": "Buy Crops",
+            "smartFarming": "Smart Farming",
+            "askUsCrop": "Ask us !",
+            "livestock": "Livestock",
+            "livestockIdentification": "Livestock Identification",
+            "milkCalculator": "Milk Calculator",
+            "animalDiseaseDetection": "Disesase Detection",
+            "askUsLivestock": "Ask us !",
+            "iot": "IOT",
+            "search": "Search",
+            "agritech": "AgriTech"
+        },
+        "hi": {
+            "home": "होम",
+            "crop": "फसल",
+            "diseaseDetection": "रोग की पहचान",
+            "buyCrops": "फसल खरीदें",
+            "smartFarming": "स्मार्ट खेती",
+            "askUsCrop": "हमसे पूछें!",
+            "livestock": "पशुधन",
+            "livestockIdentification": "पशुधन पहचान",
+            "milkCalculator": "दूध कैलकुलेटर",
+            "animalDiseaseDetection": "रोग का पता लगाना",
+            "askUsLivestock": "हमसे पूछें!",
+            "iot": "आईओटी",
+            "search": "खोज",
+            "agritech": "एग्रीटेक"
+        },
+        "mr": {
+            "home": "मुख्यपृष्ठ",
+            "crop": "पीक",
+            "diseaseDetection": "रोग ओळख",
+            "buyCrops": "पीक खरेदी करा",
+            "smartFarming": "स्मार्ट शेती",
+            "askUsCrop": "आम्हाला विचारा!",
+            "livestock": "पशुधन",
+            "livestockIdentification": "पशुधन ओळख",
+            "milkCalculator": "दूध कॅल्क्युलेटर",
+            "animalDiseaseDetection": "रोग ओळख",
+            "askUsLivestock": "आम्हाला विचारा!",
+            "iot": "आयओटी",
+            "search": "शोध",
+            "agritech": "एग्रीटेक"
+        },
+        "fr": {
+            "home": "Accueil",
+            "crop": "Culture",
+            "diseaseDetection": "Détection des maladies",
+            "buyCrops": "Acheter des cultures",
+            "smartFarming": "Agriculture intelligente",
+            "askUsCrop": "Demandez-nous !",
+            "livestock": "Bétail",
+            "livestockIdentification": "Identification du bétail",
+            "milkCalculator": "Calculateur de lait",
+            "animalDiseaseDetection": "Détection des maladies animales",
+            "askUsLivestock": "Demandez-nous !",
+            "iot": "IoT",
+            "search": "Recherche",
+            "agritech": "AgriTech"
+        },
+        "zh": {
+            "home": "首页",
+            "crop": "作物",
+            "diseaseDetection": "疾病检测",
+            "buyCrops": "购买作物",
+            "smartFarming": "智能农业",
+            "askUsCrop": "问我们！",
+            "livestock": "牲畜",
+            "livestockIdentification": "牲畜识别",
+            "milkCalculator": "牛奶计算器",
+            "animalDiseaseDetection": "动物疾病检测",
+            "askUsLivestock": "问我们！",
+            "iot": "物联网",
+            "search": "搜索",
+            "agritech": "农业科技"
+        },
+        "de": {
+            "home": "Startseite",
+            "crop": "Pflanze",
+            "diseaseDetection": "Krankheitserkennung",
+            "buyCrops": "Pflanzen kaufen",
+            "smartFarming": "Intelligente Landwirtschaft",
+            "askUsCrop": "Fragen Sie uns!",
+            "livestock": "Vieh",
+            "livestockIdentification": "Viehidentifikation",
+            "milkCalculator": "Milchrechner",
+            "animalDiseaseDetection": "Tierkrankheitserkennung",
+            "askUsLivestock": "Fragen Sie uns!",
+            "iot": "IoT",
+            "search": "Suche",
+            "agritech": "AgriTech"
+        }
+    };
+
+    function applyTranslations(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.dataset.i18n;
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach(element => {
+            const key = element.dataset.i18nPlaceholder;
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        });
+    }
+
+    languageDropdownItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedLanguageText = this.textContent; // This will now be "English", "हिंदी", etc.
+            const selectedLangCode = this.dataset.lang; // This will still be "en", "hi", etc.
+
+            languageDropdownToggle.textContent = selectedLanguageText;
+            localStorage.setItem('selectedLanguage', selectedLangCode);
+            applyTranslations(selectedLangCode);
+        });
+    });
+
+    // On page load, apply translations based on saved language or default to English
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage && translations[savedLanguage]) {
+        languageDropdownItems.forEach(item => {
+            if (item.dataset.lang === savedLanguage) {
+                languageDropdownToggle.textContent = item.textContent; // Set dropdown to full name
+            }
+        });
+        applyTranslations(savedLanguage);
+    } else {
+        // Default to English if no language is saved
+        applyTranslations('en');
+        // Also set the dropdown toggle to "English" if defaulting
+        languageDropdownToggle.textContent = "English";
+    }
+});
+</script>

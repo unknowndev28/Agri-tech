@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Animal Info Form</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .form-card {
+      background-color: #fff;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+    .form-label {
+      font-weight: 600;
+    }
+    .form-header {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+  <%- include("partials/navbar.ejs") %>
+
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card form-card p-4">
+          <div class="card-body">
+
+            
+
+            <h2 class="form-header text-center mb-4" id="form-title">
+              <i class="bi bi-clipboard2-heart"></i> Animal Information
+            </h2>
+
+            <form action="/calculate-milk" method="POST">
+              <div class="mb-4">
+                <label class="form-label" id="label-animal-type">Animal Type</label>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animalType" id="cow" value="cow" required />
+                      <label class="form-check-label" for="cow">🐄 Cow</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animalType" id="buffalo" value="buffalo" />
+                    <label class="form-check-label" for="buffalo">🐃 Buffalo</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="animalType" id="goat" value="goat" />
+                    <label class="form-check-label" for="goat">🐐 Goat</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="breed" class="form-label" id="label-breed">Breed</label>
+                <input type="text" id="breed" name="breed" class="form-control" placeholder="e.g., Holstein Friesian" required />
+              </div>
+
+              <div class="mb-4">
+              <label for="language-select" class="form-label" id="label-select-lang">Select Language:</label>
+              <select id="language-select" class="form-select">
+                <option value="en">English</option>
+                <option value="hi">हिन्दी (Hindi)</option>
+                <option value="mr">मराठी (Marathi)</option>
+                <option value="fr">Français (French)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="zh">中文 (Chinese)</option>
+                <option value="other">Other (Please Specify)</option>
+              </select>
+              <input
+                type="text"
+                id="other-language-input"
+                class="form-control mt-2 d-none"
+                placeholder="Type language here (e.g., French)"
+              />
+            </div>
+
+              <div class="mb-3">
+                <label for="age" class="form-label" id="label-age">Age (Years)</label>
+                <input type="number" id="age" name="age" class="form-control" placeholder="e.g., 5" min="0" required />
+              </div>
+
+              <div class="mb-4">
+                <label for="weight" class="form-label" id="label-weight">Weight (kg)</label>
+                <input type="number" id="weight" name="weight" class="form-control" placeholder="e.g., 500" min="0" required />
+              </div>
+
+                 <div id="loader" class="hidden flex items-center justify-center mt-8">
+            <div class="loader ease-linear rounded-full border-4 border-gray-400 h-12 w-12"></div>
+        </div>
+
+            <%-include("partials/loder.ejs")%>
+
+        <% if (responseText) { %>
+            <h2 class="text-2xl sm:text-3xl font-bold mt-8 mb-4 text-sky-500 text-center">Response</h2>            <div id="responseBox" class="response-box mt-6 bg-white bg-opacity-50 p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl border-l-4 border-sky-500" data-full-text="<%= responseText %>"></div>
+            <br>
+        <% } %>
+
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary btn-lg" id="submit-button">
+                  <i class="bi bi-send-fill me-2"></i> Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    const languageSelect = document.getElementById('language-select');
+    const otherLanguageInput = document.getElementById('other-language-input');
+
+    const languageMap = {
+      en: 'english',
+      hi: 'hindi',
+      mr: 'marathi',
+      fr: 'french',
+      de: 'german',
+      zh: 'chinese'
+    };
+
+    const translations = {
+      english: {
+        formTitle: 'Animal Information',
+        selectLang: 'Select Language:',
+        animalType: 'Animal Type',
+        breed: 'Breed',
+        age: 'Age (Years)',
+        weight: 'Weight (kg)',
+        submit: 'Submit',
+        placeholder: 'Type language here (e.g., French)',
+      },
+      hindi: {
+        formTitle: 'पशु जानकारी',
+        selectLang: 'भाषा चुनें:',
+        animalType: 'पशु का प्रकार',
+        breed: 'नस्ल',
+        age: 'आयु (वर्ष)',
+        weight: 'वज़न (कि.ग्रा.)',
+        submit: 'जमा करें',
+        placeholder: 'यहाँ भाषा टाइप करें (उदा. फ्रेंच)',
+      },
+      marathi: {
+        formTitle: 'प्राणी माहिती',
+        selectLang: 'भाषा निवडा:',
+        animalType: 'प्राण्याचा प्रकार',
+        breed: 'प्रजाती',
+        age: 'वय (वर्षे)',
+        weight: 'वजन (किलो)',
+        submit: 'सबमिट करा',
+        placeholder: 'येथे भाषा टाइप करा (उदा. फ्रेंच)',
+      },
+      french: {
+        formTitle: 'Informations sur l\'animal',
+        selectLang: 'Sélectionner la langue:',
+        animalType: 'Type d\'animal',
+        breed: 'Race',
+        age: 'Âge (années)',
+        weight: 'Poids (kg)',
+        submit: 'Soumettre',
+        placeholder: 'Tapez la langue ici (ex. espagnol)',
+      },
+      german: {
+        formTitle: 'Tierinformationen',
+        selectLang: 'Sprache auswählen:',
+        animalType: 'Tierart',
+        breed: 'Rasse',
+        age: 'Alter (Jahre)',
+        weight: 'Gewicht (kg)',
+        submit: 'Einreichen',
+        placeholder: 'Sprache hier eingeben (z.B. Französisch)',
+      },
+      chinese: {
+        formTitle: '动物信息',
+        selectLang: '选择语言:',
+        animalType: '动物类型',
+        breed: '品种',
+        age: '年龄 (年)',
+        weight: '体重 (千克)',
+        submit: '提交',
+        placeholder: '在此处输入语言（例如：法语）',
+      },
+    };
+
+    function updateLanguageText(langKey) {
+      const text = translations[langKey] || translations['english'];
+      document.getElementById('form-title').textContent = text.formTitle;
+      document.getElementById('label-select-lang').textContent = text.selectLang;
+      document.getElementById('label-animal-type').textContent = text.animalType;
+      document.getElementById('label-breed').textContent = text.breed;
+      document.getElementById('label-age').textContent = text.age;
+      document.getElementById('label-weight').textContent = text.weight;
+      document.getElementById('submit-button').innerHTML = `<i class="bi bi-send-fill me-2"></i>${text.submit}`;
+      otherLanguageInput.placeholder = text.placeholder;
+    }
+
+    languageSelect.addEventListener('change', () => {
+      const selectedCode = languageSelect.value;
+      if (selectedCode === 'other') {
+        otherLanguageInput.classList.remove('d-none');
+      } else {
+        otherLanguageInput.classList.add('d-none');
+        otherLanguageInput.value = '';
+        localStorage.setItem('selectedLanguage', selectedCode);
+
+        const langKey = languageMap[selectedCode] || 'english';
+        updateLanguageText(langKey);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      let savedCode = localStorage.getItem('selectedLanguage') || 'en';
+      languageSelect.value = savedCode;
+
+      if (savedCode === 'other') {
+        otherLanguageInput.classList.remove('d-none');
+      }
+
+      const langKey = languageMap[savedCode] || 'english';
+      updateLanguageText(langKey);
+    });
+
+
+            const responseBox = document.getElementById('responseBox');
+            if (responseBox) {
+                const fullText = responseBox.getAttribute('data-full-text');
+                responseBox.innerText = ''; 
+
+                let i = 0;
+                const speed = 25; 
+
+                function typeWriter() {
+                    if (i < fullText.length) {
+                        responseBox.innerHTML += fullText.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                    }
+                }
+
+                setTimeout(typeWriter, 500);
+            }
+        
+  </script>
+</body>
+</html>

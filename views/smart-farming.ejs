@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farmer Crop Input Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background: #1976d2;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #125a9c;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h1>🌱 Farmer Crop Input Form</h1>
+    <form action="/smart-farming-form" method="POST">
+
+      <h3>📍 Location</h3>
+      <label>Country</label>
+      <input type="text" name="country" required>
+      <label>State/Province</label>
+      <input type="text" name="state" required>
+      <label>City/Town</label>
+      <input type="text" name="city">
+
+      <h3>🌾 Land Details</h3>
+      <label>Land Area</label>
+      <input type="number" name="landArea">
+      <label>Unit</label>
+      <select name="unit">
+        <option>Acres</option>
+        <option>Hectares</option>
+        <option>Square Meters</option>
+        <option>Square Feet</option>
+      </select>
+      <label>Slope of Land</label>
+      <select name="slope">
+        <option>Flat</option>
+        <option>Gentle Slope</option>
+        <option>Moderate Slope</option>
+        <option>Steep Slope</option>
+        <option>Don't Know</option>
+      </select>
+      <label>Soil Type</label>
+      <select name="soil">
+        <option>Loamy</option>
+        <option>Sandy</option>
+        <option>Clay</option>
+        <option>Silty</option>
+        <option>Chalky</option>
+        <option>Peaty</option>
+        <option>Don't Know</option>
+      </select>
+      <label>Soil Description</label>
+      <textarea name="soilDesc" placeholder="Describe your soil..."></textarea>
+      <label>Previous Crop</label>
+      <input type="text" name="prevCrop">
+
+      <h3>📅 Proposed Farming Period</h3>
+      <label>Start Date</label>
+      <input type="date" name="startDate">
+      <label>End Date</label>
+      <input type="date" name="endDate">
+
+      <h3>💧 Water & Sunlight</h3>
+      <label>Water Source</label><br>
+      <input type="radio" name="waterSource" value="Rainfed"> Rainfed<br>
+      <input type="radio" name="waterSource" value="Well"> Well<br>
+      <input type="radio" name="waterSource" value="Canal"> Canal/River<br>
+      <input type="radio" name="waterSource" value="Drip"> Drip System<br>
+      <input type="radio" name="waterSource" value="Other"> Other<br>
+      <input type="radio" name="waterSource" value="Don't Know"> Don't Know<br>
+
+      <label>Other Water Source (if selected)</label>
+      <input type="text" name="otherWater" placeholder="Specify other water source">
+
+      <label>Sunlight Exposure</label>
+      <select name="sunlight">
+        <option>Full Sun (6+ hours)</option>
+        <option>Partial Sun (3-6 hours)</option>
+        <option>Shade (Less than 3 hours)</option>
+        <option>Don't Know</option>
+      </select>
+
+      <h3>💬 Additional Notes</h3>
+      <textarea name="additionalNotes" placeholder="e.g., organic farming, pest issues, etc."></textarea>
+
+      <br>
+      <button type="submit">✅ Submit</button>
+
+          <%-include("partials/loder.ejs")%>
+
+    </form>
+  </div>
+</body>
+</html>

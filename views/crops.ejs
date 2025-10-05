@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pageTitle">Farm Management Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            max-width: 900px;
+            width: 95%;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .option-card {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            padding: 25px;
+            text-decoration: none;
+            color: #333;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 180px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #dcdcdc;
+        }
+
+        .option-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .option-card .icon {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        .option-card h2 {
+            font-size: 1.6em;
+            margin: 0;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option-card {
+                min-height: 150px;
+                padding: 20px;
+            }
+
+            .option-card .icon {
+                font-size: 3em;
+            }
+
+            .option-card h2 {
+                font-size: 1.4em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .option-card .icon {
+                font-size: 2.5em;
+            }
+
+            .option-card h2 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 data-i18n="mainTitle">Farm Management Hub</h1>
+        <p data-i18n="selectPrompt">Select an option to get started:</p>
+        <div class="options-grid">
+            <a href="/index" class="option-card">
+                <div class="icon"><i class="fas fa-home"></i></div>
+                <h2 data-i18n="homeOption">Home</h2>
+            </a>
+            <a href="plant-disease-identify" class="option-card">
+                <div class="icon"><i class="fas fa-bug"></i></div>
+                <h2 data-i18n="diseaseDetectionOption">Disease Detection</h2>
+            </a>
+            <a href="/buy-crops" class="option-card">
+                <div class="icon"><i class="fas fa-shopping-cart"></i></div>
+                <h2 data-i18n="buyCropsOption">Buy Crops</h2>
+            </a>
+            <a href="/smart-farming" class="option-card">
+                <div class="icon"><i class="fas fa-leaf"></i></div>
+                <h2 data-i18n="smartFarmingOption">Smart Farming</h2>
+            </a>
+            <a href="/crops-chat" class="option-card">
+                <div class="icon"><i class="fas fa-comments"></i></div>
+                <h2 data-i18n="chatbotOption">Chatbot</h2>
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const translations = {
+                "en": {
+                    "pageTitle": "Farm Management Hub",
+                    "mainTitle": "Farm Management Hub",
+                    "selectPrompt": "Select an option to get started:",
+                    "homeOption": "Home",
+                    "diseaseDetectionOption": "Disease Detection",
+                    "buyCropsOption": "Buy Crops",
+                    "smartFarmingOption": "Smart Farming",
+                    "chatbotOption": "Chatbot"
+                },
+                "hi": {
+                    "pageTitle": "खेत प्रबंधन केंद्र",
+                    "mainTitle": "खेत प्रबंधन केंद्र",
+                    "selectPrompt": "शुरू करने के लिए एक विकल्प चुनें:",
+                    "homeOption": "होम",
+                    "diseaseDetectionOption": "रोग का पता लगाना",
+                    "buyCropsOption": "फसल खरीदें",
+                    "smartFarmingOption": "स्मार्ट खेती",
+                    "chatbotOption": "चैटबॉट"
+                },
+                "mr": {
+                    "pageTitle": "शेती व्यवस्थापन केंद्र",
+                    "mainTitle": "शेती व्यवस्थापन केंद्र",
+                    "selectPrompt": "सुरुवात करण्यासाठी एक पर्याय निवडा:",
+                    "homeOption": "मुख्यपृष्ठ",
+                    "diseaseDetectionOption": "रोग ओळख",
+                    "buyCropsOption": "पीक खरेदी करा",
+                    "smartFarmingOption": "स्मार्ट शेती",
+                    "chatbotOption": "चॅटबॉट"
+                },
+                "fr": {
+                    "pageTitle": "Centre de gestion agricole",
+                    "mainTitle": "Centre de gestion agricole",
+                    "selectPrompt": "Sélectionnez une option pour commencer :",
+                    "homeOption": "Accueil",
+                    "diseaseDetectionOption": "Détection des maladies",
+                    "buyCropsOption": "Acheter des cultures",
+                    "smartFarmingOption": "Agriculture intelligente",
+                    "chatbotOption": "Chatbot"
+                },
+                "zh": {
+                    "pageTitle": "农场管理中心",
+                    "mainTitle": "农场管理中心",
+                    "selectPrompt": "选择一个选项以开始：",
+                    "homeOption": "首页",
+                    "diseaseDetectionOption": "疾病检测",
+                    "buyCropsOption": "购买作物",
+                    "smartFarmingOption": "智能农业",
+                    "chatbotOption": "聊天机器人"
+                },
+                "de": {
+                    "pageTitle": "Landwirtschafts-Management-Hub",
+                    "mainTitle": "Landwirtschafts-Management-Hub",
+                    "selectPrompt": "Wählen Sie eine Option, um zu beginnen:",
+                    "homeOption": "Startseite",
+                    "diseaseDetectionOption": "Krankheitserkennung",
+                    "buyCropsOption": "Pflanzen kaufen",
+                    "smartFarmingOption": "Intelligente Landwirtschaft",
+                    "chatbotOption": "Chatbot"
+                }
+            };
+
+            function applyTranslations(lang) {
+                const elements = document.querySelectorAll('[data-i18n]');
+                elements.forEach(element => {
+                    const key = element.dataset.i18n;
+                    if (translations[lang] && translations[lang][key]) {
+                        if (element.tagName === 'TITLE') {
+                            document.title = translations[lang][key];
+                        } else {
+                            element.textContent = translations[lang][key];
+                        }
+                    }
+                });
+            }
+
+            const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+            applyTranslations(savedLanguage);
+        });
+    </script>
+</body>
+</html>

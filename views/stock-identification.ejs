@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animal Breed Identifier</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+  </style>
+</head>
+
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4 font-sans">
+  <form action="/upload-stock-identify" method="POST" enctype="multipart/form-data" class="w-full max-w-2xl bg-white rounded-xl shadow-lg p-6 md:p-8">
+    <header class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">Animal Breed Identifier</h1>
+      <p class="text-gray-500 text-sm md:text-base">Upload a picture of a domestic animal to identify breed.</p>
+    </header>
+
+    <div class="mb-6">
+      <label for="language-select" class="block text-sm font-medium text-gray-700 mb-2">Select Language:</label>
+      <select id="language-select" name="language" class="block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+        <option value="english">English</option>
+        <option value="hindi">हिन्दी (Hindi)</option>
+        <option value="marathi">मराठी (Marathi)</option>
+        <option value="french">Français (French)</option>
+        <option value="german">Deutsch (German)</option>
+        <option value="chinese">中文 (Chinese)</option>
+        <option value="other">Other (Please Specify)</option>
+      </select>
+      <input type="text" id="other-language-input" name="other_language" placeholder="Type language here (e.g., French)" class="mt-2 hidden w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" />
+    </div>
+
+    <div id="drop-area" class="relative w-full h-64 border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center cursor-pointer hover:border-blue-500 transition-colors duration-200">
+      <input type="file" name="image" id="image-upload" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" required />
+      <div class="text-center" id="upload-message">
+        <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M7 16a4 4 0 01-4-4v-1a4 4 0 014-4h10a4 4 0 014 4v1a4 4 0 01-4 4H7zM16 16h-4M12 8v8M9 12h6" />
+        </svg>
+        <p class="mt-2 text-sm text-gray-600"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+        <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+      </div>
+      <img id="image-preview" src="#" alt="Image preview"
+        class="hidden absolute inset-0 w-full h-full object-contain p-2 rounded-lg" />
+    </div>
+
+        <%-include("partials/loder.ejs")%>
+
+
+    <% if (responseText) { %>
+    <h2 class="text-2xl sm:text-3xl font-bold mt-8 mb-4 text-sky-500 text-center">Report</h2>
+    <div id="responseBox" class="response-box mt-6 bg-white bg-opacity-50 p-6 rounded-2xl shadow-lg transition-all duration-300 hover:shadow-xl border-l-4 border-sky-500" data-full-text="<%= responseText %>"></div>
+    <% } %>
+
+    <button type="submit" class="w-full mt-6 bg-blue-600 text-white font-semibold py-3 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-200">
+      Analyze Image
+    </button>
+
+    <div class="flex justify-between mt-4">
+      <button type="button" onclick="window.history.back()" class="flex-1 mr-2 bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-400 transition-colors duration-200">
+        Go Back
+      </button>
+      <button type="button" onclick="window.location.href='/'" class="flex-1 ml-2 bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-gray-400 transition-colors duration-200">
+        Go to Home
+      </button>
+    </div>
+  </form>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const imageUpload = document.getElementById('image-upload');
+      const dropArea = document.getElementById('drop-area');
+      const imagePreview = document.getElementById('image-preview');
+      const uploadMessage = document.getElementById('upload-message');
+      const languageSelect = document.getElementById('language-select');
+      const otherLanguageInput = document.getElementById('other-language-input');
+
+      const languageMap = {
+        en: 'english',
+        hi: 'hindi',
+        mr: 'marathi',
+        fr: 'french',
+        de: 'german',
+        zh: 'chinese'
+      };
+
+      const reverseMap = {
+        english: 'en',
+        hindi: 'hi',
+        marathi: 'mr',
+        french: 'fr',
+        german: 'de',
+        chinese: 'zh'
+      };
+
+      const savedLangCode = localStorage.getItem('selectedLanguage');
+      if (savedLangCode && languageMap[savedLangCode]) {
+        languageSelect.value = languageMap[savedLangCode];
+        updateLanguageText(languageSelect.value);
+      }
+
+      languageSelect.addEventListener('change', (e) => {
+        const selectedValue = e.target.value;
+
+        const langCode = reverseMap[selectedValue];
+        if (langCode) {
+          localStorage.setItem('selectedLanguage', langCode);
+        } else {
+          localStorage.removeItem('selectedLanguage');
+        }
+
+        if (selectedValue === 'other') {
+          otherLanguageInput.classList.remove('hidden');
+          otherLanguageInput.setAttribute('required', 'true');
+        } else {
+          otherLanguageInput.classList.add('hidden');
+          otherLanguageInput.removeAttribute('required');
+          otherLanguageInput.value = '';
+        }
+
+        updateLanguageText(selectedValue);
+      });
+
+      dropArea.addEventListener('click', () => imageUpload.click());
+      dropArea.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropArea.classList.add('border-blue-500');
+      });
+      dropArea.addEventListener('dragleave', () => {
+        dropArea.classList.remove('border-blue-500');
+      });
+      dropArea.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropArea.classList.remove('border-blue-500');
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          imageUpload.files = files;
+          previewImage(files[0]);
+        }
+      });
+
+      imageUpload.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          previewImage(file);
+        }
+      });
+
+      function previewImage(file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          imagePreview.src = e.target.result;
+          imagePreview.classList.remove('hidden');
+          uploadMessage.classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function updateLanguageText(lang) {
+        const headerTitle = document.querySelector('h1');
+        const headerSubtitle = document.querySelector('p.text-gray-500');
+        const uploadClickText = document.querySelector('#upload-message .font-semibold');
+        const uploadDragText = document.querySelector('#upload-message p:nth-of-type(2)');
+        const analyzeButton = document.querySelector('button[type="submit"]');
+        const goBackButton = document.querySelector('button[onclick="window.history.back()"]');
+        const goHomeButton = document.querySelector('button[onclick="window.location.href=\'/\'"]');
+        const selectLanguageLabel = document.querySelector('label[for="language-select"]');
+
+        const texts = {
+          english: {
+            title: 'Animal Breed Identifier',
+            subtitle: 'Upload a picture of a domestic animal to identify breed.',
+            clickUpload: 'Click to upload',
+            dragDrop: 'or drag and drop',
+            analyze: 'Analyze Image',
+            goBack: 'Go Back',
+            goHome: 'Go to Home',
+            selectLang: 'Select Language:',
+            otherLangPlaceholder: 'Type language here (e.g., French)'
+          },
+          hindi: {
+            title: 'पशु नस्ल पहचानकर्ता',
+            subtitle: 'नस्ल की पहचान के लिए एक पालतू जानवर की तस्वीर अपलोड करें।',
+            clickUpload: 'अपलोड करने के लिए क्लिक करें',
+            dragDrop: 'या खींचें और छोड़ें',
+            analyze: 'छवि का विश्लेषण करें',
+            goBack: 'पीछे जाओ',
+            goHome: 'घर जाओ',
+            selectLang: 'भाषा चुनें:',
+            otherLangPlaceholder: 'यहाँ भाषा टाइप करें (उदा. फ्रेंच)'
+          },
+          marathi: {
+            title: 'प्राणी प्रजाती ओळखकर्ता',
+            subtitle: 'प्रजाती ओळखण्यासाठी पाळीव प्राण्याचे चित्र अपलोड करा.',
+            clickUpload: 'अपलोड करण्यासाठी क्लिक करा',
+            dragDrop: 'किंवा ड्रॅग आणि ड्रॉप करा',
+            analyze: 'प्रतिमेचे विश्लेषण करा',
+            goBack: 'मागे जा',
+            goHome: 'घरी जा',
+            selectLang: 'भाषा निवडा:',
+            otherLangPlaceholder: 'येथे भाषा टाइप करा (उदा. फ्रेंच)'
+          },
+          french: {
+            title: 'Identificateur de race animale',
+            subtitle: 'Téléchargez une image d\'un animal domestique pour identifier sa race.',
+            clickUpload: 'Cliquez pour télécharger',
+            dragDrop: 'ou glissez-déposez',
+            analyze: 'Analyser l\'image',
+            goBack: 'Retour',
+            goHome: 'Aller à la page d\'accueil',
+            selectLang: 'Sélectionner la langue:',
+            otherLangPlaceholder: 'Tapez la langue ici (ex. espagnol)'
+          },
+          german: {
+            title: 'Tierrassen-Identifikator',
+            subtitle: 'Laden Sie ein Bild eines Haustiers hoch, um seine Rasse zu identifizieren.',
+            clickUpload: 'Klicken zum Hochladen',
+            dragDrop: 'oder ziehen und ablegen',
+            analyze: 'Bild analysieren',
+            goBack: 'Zurück',
+            goHome: 'Zur Startseite',
+            selectLang: 'Sprache auswählen:',
+            otherLangPlaceholder: 'Sprache hier eingeben (z.B. Spanisch)'
+          },
+          chinese: {
+            title: '动物品种识别器',
+            subtitle: '上传一张家畜图片以识别其品种。',
+            clickUpload: '点击上传',
+            dragDrop: '或拖放',
+            analyze: '分析图片',
+            goBack: '返回',
+            goHome: '前往主页',
+            selectLang: '选择语言:',
+            otherLangPlaceholder: '在此处输入语言（例如：西班牙语）'
+          }
+        };
+
+        const currentTexts = texts[lang] || texts['english'];
+
+        if (headerTitle) headerTitle.innerText = currentTexts.title;
+        if (headerSubtitle) headerSubtitle.innerText = currentTexts.subtitle;
+        if (uploadClickText) uploadClickText.innerText = currentTexts.clickUpload;
+        if (uploadDragText) uploadDragText.innerText = currentTexts.dragDrop;
+        if (analyzeButton) analyzeButton.innerText = currentTexts.analyze;
+        if (goBackButton) goBackButton.innerText = currentTexts.goBack;
+        if (goHomeButton) goHomeButton.innerText = currentTexts.goHome;
+        if (selectLanguageLabel) selectLanguageLabel.innerText = currentTexts.selectLang;
+        if (otherLanguageInput) otherLanguageInput.placeholder = currentTexts.otherLangPlaceholder;
+      }
+
+      const responseBox = document.getElementById('responseBox');
+      if (responseBox) {
+        const fullText = responseBox.getAttribute('data-full-text');
+        responseBox.innerText = '';
+        let i = 0;
+        const speed = 25;
+        function typeWriter() {
+          if (i < fullText.length) {
+            responseBox.innerHTML += fullText.charAt(i);
+            i++;
+            setTimeout(typeWriter, speed);
+          }
+        }
+        setTimeout(typeWriter, 500);
+      }
+    });
+  </script>
+</body>
+</html>

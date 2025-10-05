@@ -1,0 +1,113 @@
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <video 
+        class="d-block mx-lg-auto img-fluid"
+        width="700"
+        height="500"
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source src="/videos/animals.webm" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3" data-i18n="knowYourBreedTitle">Know Your Breed. Maximize Your Output</h1>
+      <p class="lead" data-i18n="knowYourBreedText">Take the guesswork out of livestock farming with AI-driven tools that recognize cow and buffalo breeds from a single image, delivering instant insights on breed traits, care requirements, and productivity potential. Receive customized tips for feed, nutrition, healthcare, and best practices tailored to your animals' specific needs. Whether you're managing a small herd or running a large dairy operation, our livestock support system helps you improve animal health, increase milk and meat yields, and farm more efficiently with confidence and clarity.</p>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+  <a href="/livestock"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2" data-i18n="livestockButton">Livestock</button></a>
+  <a href="/livestock-chat"><button type="button" class="btn btn-outline-secondary btn-lg px-4" data-i18n="chatButton">Chat</button></a>
+</div>
+    </div>
+  </div>
+</div><script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const languageDropdownToggle = document.getElementById('navbarLanguageDropdown');
+    const languageDropdownItems = document.querySelectorAll('#navbarLanguageDropdown + .dropdown-menu .dropdown-item');
+
+  const translations = {
+    "en": {
+        "knowYourBreedTitle": "Know Your Breed. Maximize Your Output",
+        "knowYourBreedText": "Take the guesswork out of livestock farming with AI-driven tools that recognize cow and buffalo breeds from a single image, delivering instant insights on breed traits, care requirements, and productivity potential. Receive customized tips for feed, nutrition, healthcare, and best practices tailored to your animals' specific needs. Whether you're managing a small herd or running a large dairy operation, our livestock support system helps you improve animal health, increase milk and meat yields, and farm more efficiently with confidence and clarity.",
+        "livestockButton": "Livestock",
+        "chatButton": "Chat"
+    },
+    "hi": {
+        "knowYourBreedTitle": "अपने नस्ल को जानें। अपनी पैदावार को अधिकतम करें",
+        "knowYourBreedText": "एआई-संचालित उपकरणों के साथ पशुधन पालन से अनुमान लगाना बंद करें जो एक ही छवि से गाय और भैंस की नस्लों को पहचानते हैं, नस्ल के लक्षणों, देखभाल की आवश्यकताओं और उत्पादकता की क्षमता पर तत्काल जानकारी प्रदान करते हैं। अपने जानवरों की विशिष्ट आवश्यकताओं के अनुसार फ़ीड, पोषण, स्वास्थ्य सेवा और सर्वोत्तम प्रथाओं के लिए अनुकूलित सुझाव प्राप्त करें। चाहे आप एक छोटे झुंड का प्रबंधन कर रहे हों या एक बड़ा डेयरी ऑपरेशन चला रहे हों, हमारी पशुधन सहायता प्रणाली आपको पशु स्वास्थ्य में सुधार करने, दूध और मांस की पैदावार बढ़ाने और आत्मविश्वास और स्पष्टता के साथ अधिक कुशलता से खेती करने में मदद करती।",
+        "livestockButton": "पशुधन",
+        "chatButton": "चैट"
+    },
+    "mr": {
+        "knowYourBreedTitle": "तुमची जात ओळखा. तुमचे उत्पादन वाढवा",
+        "knowYourBreedText": "एआय-चालित साधनांनी पशुधनाच्या शेतीतून अंदाजपत्रक काढून टाका जे एकाच प्रतिमेतून गाय आणि म्हैस जाती ओळखतात, जातीच्या गुणधर्मांवर, काळजीच्या गरजा आणि उत्पादकतेच्या संभाव्यतेवर त्वरित अंतर्दृष्टी देतात. तुमच्या प्राण्यांच्या विशिष्ट गरजांनुसार खाद्य, पोषण, आरोग्य सेवा आणि सर्वोत्तम पद्धतींसाठी सानुकूलित टिप्स मिळवा. तुम्ही लहान कळपाचे व्यवस्थापन करत असाल किंवा मोठ्या दुग्धव्यवसायाचे संचालन करत असाल, आमची पशुधन समर्थन प्रणाली तुम्हाला प्राण्यांचे आरोग्य सुधारण्यास, दूध आणि मांसाचे उत्पादन वाढवण्यास आणि आत्मविश्वास आणि स्पष्टतेसह अधिक कार्यक्षमतेने शेती करण्यास मदत करते.",
+        "livestockButton": "पशुधन",
+        "chatButton": "चॅट"
+    },
+    "fr": {
+        "knowYourBreedTitle": "Connaissez votre race. Maximisez votre production",
+        "knowYourBreedText": "Supprimez les incertitudes de l'élevage grâce à des outils basés sur l'IA qui reconnaissent les races de vaches et de buffles à partir d'une seule image, fournissant des informations instantanées sur les traits de la race, les besoins en matière de soins et le potentiel de productivité. Recevez des conseils personnalisés sur l'alimentation, la nutrition, les soins de santé et les meilleures pratiques adaptés aux besoins spécifiques de vos animaux. Que vous gériez un petit troupeau ou une grande exploitation laitière, notre système de soutien au bétail vous aide à améliorer la santé animale, à augmenter les rendements en lait et en viande, et à cultiver plus efficacement avec confiance et clarté.",
+        "livestockButton": "Bétail",
+        "chatButton": "Discuter"
+    },
+    "zh": {
+        "knowYourBreedTitle": "了解你的品种。最大化你的产出",
+        "knowYourBreedText": "利用人工智能驱动的工具，从一张图片中识别牛和水牛的品种，从而消除畜牧业的猜测，并提供有关品种特征、护理要求和生产力潜力的即时见解。获取针对您的动物特定需求量身定制的饲料、营养、医疗保健和最佳实践的个性化提示。无论您是管理小牛群还是经营大型奶牛场，我们的牲畜支持系统都可以帮助您改善动物健康、增加牛奶和肉类产量，并以自信和清晰的方式更高效地进行农业生产。",
+        "livestockButton": "牲畜",
+        "chatButton": "聊天"
+    },
+    "de": {
+        "knowYourBreedTitle": "Kennen Sie Ihre Rasse. Maximieren Sie Ihren Ertrag",
+        "knowYourBreedText": "Mit KI-gesteuerten Tools, die Rinder- und Büffelrassen anhand eines einzigen Bildes erkennen, können Sie das Rätselraten in der Viehzucht beenden. Erhalten Sie sofortige Einblicke in Rassemerkmale, Pflegeanforderungen und Produktivitätspotenzial. Erhalten Sie maßgeschneiderte Tipps für Futter, Ernährung, Gesundheitsversorgung und bewährte Verfahren, die auf die spezifischen Bedürfnisse Ihrer Tiere zugeschnitten sind. Egal, ob Sie eine kleine Herde verwalten oder einen großen Milchbetrieb führen, unser Vieh-Unterstützungssystem hilft Ihnen, die Tiergesundheit zu verbessern, die Milch- und Fleischerträge zu steigern und mit Vertrauen und Klarheit effizienter zu wirtschaften.",
+        "livestockButton": "Vieh",
+        "chatButton": "Chat"
+    }
+  };
+
+    function applyTranslations(lang) {
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.dataset.i18n;
+            if (translations[lang] && translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+
+        const placeholderElements = document.querySelectorAll('[data-i18n-placeholder]');
+        placeholderElements.forEach(element => {
+            const key = element.dataset.i18nPlaceholder;
+            if (translations[lang] && translations[lang][key]) {
+                element.placeholder = translations[lang][key];
+            }
+        });
+    }
+
+    languageDropdownItems.forEach(item => {
+        item.addEventListener('click', function(event) {
+            event.preventDefault();
+            const selectedLanguageText = this.textContent;
+            const selectedLangCode = this.dataset.lang;
+
+            languageDropdownToggle.textContent = selectedLanguageText;
+            localStorage.setItem('selectedLanguage', selectedLangCode);
+            applyTranslations(selectedLangCode);
+        });
+    });
+
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage && translations[savedLanguage]) {
+        languageDropdownItems.forEach(item => {
+            if (item.dataset.lang === savedLanguage) {
+                languageDropdownToggle.textContent = item.textContent;
+            }
+        });
+        applyTranslations(savedLanguage);
+    } else {
+        applyTranslations('en');
+        languageDropdownToggle.textContent = "English";
+    }
+});
+</script>
